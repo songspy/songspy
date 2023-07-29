@@ -13,4 +13,9 @@ class SpotifyTokenReader(
         val tokens = tokenRepository.findAllByExpiredAtIsLessThan(LocalDateTime.now())
         return tokens.map { tokenBucketMapper.map(it) }
     }
+
+    fun readUnExpired(): List<TokenBucket> {
+        val tokens = tokenRepository.findAllByExpiredAtIsGreaterThan(LocalDateTime.now())
+        return tokens.map { tokenBucketMapper.map(it) }
+    }
 }
