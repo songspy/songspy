@@ -1,0 +1,37 @@
+name: run-test
+
+on:
+  pull_request:
+    branches: [ master, develop ] # master, develop branch에 PR을 보낼 때 실행
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3 # workflow를 실행하기 위해 사용하고 있는 runner에 해당 repository의 코드를 가져오기 위한 부분
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: zulu
+
+      # Gradle wrapper 파일 실행 권한주기
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # Gradlew packages 캐시
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Gradle test를 실행한다
+      - name: Test with Gradle
+        run: ./gradlew --info test
