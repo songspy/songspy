@@ -1,0 +1,16 @@
+spotify-api:
+  oauth.url: https://accounts.spotify.com
+  client.key: test-client-key
+  secret.key: test-secret-key
+  redirect.url: http://localhost:8080
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 2000
+
+logging:
+  level:
+    com.songspy.clients.spotify: DEBUG
