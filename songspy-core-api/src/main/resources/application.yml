@@ -5,3 +5,5 @@ spring:
     import:
       - spotify.yml
       - db.yml
+      - google.yml
+      - jwt.yml
