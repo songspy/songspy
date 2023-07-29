@@ -3,4 +3,5 @@ spring.application.name: songspy-core-api
 spring:
   config:
     import:
-      - spotify.yml
+#      - spotify.yml
+      - db.yml
