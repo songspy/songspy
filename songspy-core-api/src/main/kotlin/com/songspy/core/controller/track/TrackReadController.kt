@@ -13,9 +13,9 @@ class TrackReadController(
 ) {
     @GetMapping("/current-playing")
     fun getCurrentPlaying(): CommonApiResponse<List<CurrentPlayingTrackResponseDto>> {
-        val tracks = trackReadService.readCurrentPlaying()
+        val trackDetails = trackReadService.readCurrentPlaying()
         return CommonApiResponse.success(
-            data = tracks.map { CurrentPlayingTrackResponseDto(it) }
+            data = trackDetails.map { CurrentPlayingTrackResponseDto(it) }
         )
     }
 }

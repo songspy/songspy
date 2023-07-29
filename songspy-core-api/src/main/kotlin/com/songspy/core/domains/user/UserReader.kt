@@ -12,4 +12,9 @@ class UserReader(
         return userRepository.findByThirdPartyId(thirdPartyId)
             ?.let { userMapper.map(it) }
     }
+
+    fun readAllByUserIdIn(userIds: List<Long>): List<User> {
+        return userRepository.findAllByIdIn(userIds)
+            .map { userMapper.map(it) }
+    }
 }

@@ -18,7 +18,10 @@ class UserEntity(
     var hasSpotify: Boolean = false,
 
     @Column(name = "third_party_id")
-    val thirdPartyId: String?
+    val thirdPartyId: String?,
+
+    @Column(name = "profile_image_url")
+    val profileImageUrl: String? = null
 ) : BaseEntity() {
     fun authenticateSpotify() {
         this.hasSpotify = true

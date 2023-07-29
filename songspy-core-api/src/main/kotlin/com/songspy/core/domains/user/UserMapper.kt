@@ -9,7 +9,8 @@ class UserMapper {
         return User(
             id = entity.id,
             nickName = entity.nickName,
-            hasSpotify = entity.hasSpotify
+            hasSpotify = entity.hasSpotify,
+            profileImageUrl = entity.profileImageUrl
         )
     }
 }
