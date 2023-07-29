@@ -1,0 +1,17 @@
+google-api:
+  url: https://www.googleapis.com
+  oauth.url: https://oauth2.googleapis.com
+  client.key: client-test-key
+  secret.key: secret-test-key
+  redirect.url: http://localhost:8080
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 2000
+
+logging:
+  level:
+    com.google.clients.spotify: DEBUG

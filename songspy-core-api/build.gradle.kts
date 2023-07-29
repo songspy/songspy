@@ -2,6 +2,7 @@ val mockkVersion: String by project
 val kotestVersion: String by project
 
 dependencies {
+    implementation(project(":clients:google"))
     implementation(project(":storage:db-core"))
     implementation(project(":songspy-batch"))
 
