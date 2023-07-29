@@ -1,4 +1,5 @@
 spotify-api:
+  url: https://api.spotify.com
   oauth.url: https://accounts.spotify.com
   client.key: test-client-key
   secret.key: test-secret-key
