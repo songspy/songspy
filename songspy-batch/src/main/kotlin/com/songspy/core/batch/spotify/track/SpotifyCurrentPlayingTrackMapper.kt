@@ -11,7 +11,8 @@ class SpotifyCurrentPlayingTrackMapper {
             title = dto.title,
             artistName = dto.artists.getOrNull(0)?.name ?: "",
             originalUrl = dto.externalUrls.spotify,
-            previewUrl = dto.previewUrl
+            previewUrl = dto.previewUrl,
+            albumImageUrl = dto.album.images.getOrNull(0)?.url ?: ""
         )
     }
 
@@ -21,7 +22,8 @@ class SpotifyCurrentPlayingTrackMapper {
             title = track.title,
             artistName = track.artistName,
             originalUrl = track.originalUrl,
-            previewUrl = track.previewUrl
+            previewUrl = track.previewUrl,
+            albumImageUrl = track.albumImageUrl
         )
     }
 }

@@ -3,6 +3,7 @@ package com.songspy.clients.spotify.response
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class PlayingTrackItemResponseDto(
+    val album: AlbumResponseDto,
     val artists: List<ArtistResponseDto>,
     @JsonProperty("external_urls")
     val externalUrls: ExternalUrlResponseDto,

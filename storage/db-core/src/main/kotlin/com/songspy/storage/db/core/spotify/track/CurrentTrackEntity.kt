@@ -21,5 +21,8 @@ class CurrentTrackEntity(
     val originalUrl: String,
 
     @Column(name = "preview_url")
-    val previewUrl: String
+    val previewUrl: String,
+
+    @Column(name = "album_image_url")
+    val albumImageUrl: String
 ) : BaseEntity()

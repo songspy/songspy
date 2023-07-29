@@ -29,6 +29,7 @@ class CurrentPlayingTrackScheduler(
 
     private fun getAndAppendPlayingTrack(tokenBucket: TokenBucket) {
         val trackDto = spotifyClient.getCurrentlyPlayingTrack(tokenBucket.accessToken)
+            .onFailure { println(it) }
             .getOrNull()
         if (trackDto != null) {
             val currentPlayingTrack = spotifyCurrentPlayingTrackMapper.map(trackDto.item)
