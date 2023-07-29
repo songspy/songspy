@@ -3,6 +3,7 @@ rootProject.name = "songspy"
 include(
     "clients:spotify",
     "commons:extension",
+    "songspy-batch",
     "songspy-core-api",
     "storage:db-core"
 )
