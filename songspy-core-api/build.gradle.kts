@@ -6,6 +6,7 @@ dependencies {
     implementation(project(":commons:api"))
 
     implementation(project(":clients:google"))
+    implementation(project(":clients:spotify"))
 
     implementation(project(":storage:db-core"))
 
