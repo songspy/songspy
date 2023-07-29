@@ -7,4 +7,6 @@ interface TokenRepository : JpaRepository<TokenEntity, Long> {
     fun findAllByExpiredAtIsLessThan(expiredAt: LocalDateTime): List<TokenEntity>
 
     fun findAllByExpiredAtIsGreaterThan(expiredAt: LocalDateTime): List<TokenEntity>
+
+    fun findByUserId(userId: Long): TokenEntity?
 }
