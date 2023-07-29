@@ -24,7 +24,7 @@ class GoogleOAuthClient(
                 clientSecret = secretKey,
                 code = code,
                 redirectUrl = redirectUrl
-            ).accessToken
+            ).id
         }
     }
 }
