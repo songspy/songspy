@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/v1/google-auth")
+@RequestMapping("/v1/songspy/google-auth")
 class GoogleAuthController(
     private val googleAuthService: GoogleAuthService
 ) {

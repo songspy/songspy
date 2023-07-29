@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/v1/spotify-auth")
+@RequestMapping("/v1/songspy/spotify-auth")
 class SpotifyAuthController(
     private val spotifyAuthService: SpotifyAuthService
 ) {
