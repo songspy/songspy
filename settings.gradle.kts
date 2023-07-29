@@ -3,7 +3,8 @@ rootProject.name = "songspy"
 include(
     "clients:spotify",
     "commons:extension",
-    "songspy-core-api"
+    "songspy-core-api",
+    "storage:db-core"
 )
 
 pluginManagement {
