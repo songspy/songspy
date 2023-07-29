@@ -15,8 +15,12 @@ class UserEntity(
     val nickName: String? = null,
 
     @Column(name = "has_spotify")
-    val hasSpotify: Boolean = false,
+    var hasSpotify: Boolean = false,
 
     @Column(name = "third_party_id")
     val thirdPartyId: String?
-) : BaseEntity()
+) : BaseEntity() {
+    fun authenticateSpotify() {
+        this.hasSpotify = true
+    }
+}
