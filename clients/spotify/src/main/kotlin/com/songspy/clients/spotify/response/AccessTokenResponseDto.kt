@@ -2,7 +2,7 @@ package com.songspy.clients.spotify.response
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class AccessTokenResponse(
+data class AccessTokenResponseDto(
     @JsonProperty("access_token")
     val accessToken: String,
     @JsonProperty("token_type")

@@ -1,6 +1,6 @@
 package com.songspy.clients.spotify
 
-import com.songspy.clients.spotify.response.PlayingTrackItemResponseDto
+import com.songspy.clients.spotify.response.PlayingTrackResponseDto
 import com.songspy.commons.extension.bearerAuth
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
@@ -11,12 +11,12 @@ class SpotifyClient(
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun getCurrentlyPlayingTrack(token: String): Result<PlayingTrackItemResponseDto> {
+    fun getCurrentlyPlayingTrack(token: String): Result<PlayingTrackResponseDto> {
         logger.info("[currently playing track] token: $token")
         return runCatching {
             spotifyApi.getCurrentlyPlayingTrack(
                 auth = bearerAuth(token)
-            ).item
+            )
         }
     }
 }

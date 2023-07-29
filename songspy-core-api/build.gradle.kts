@@ -3,6 +3,7 @@ val kotestVersion: String by project
 
 dependencies {
     implementation(project(":storage:db-core"))
+    implementation(project(":songspy-batch"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
 

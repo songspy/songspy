@@ -1,6 +1,7 @@
 package com.songspy.clients.spotify.oauth
 
-import com.songspy.clients.spotify.response.AccessTokenResponse
+import com.songspy.clients.spotify.response.AccessTokenResponseDto
+import com.songspy.clients.spotify.response.TokenRefreshResponseDto
 import com.songspy.commons.extension.basicAuth
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
@@ -18,13 +19,22 @@ class SpotifyOAuthClient(
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun getAccessToken(code: String): Result<AccessTokenResponse> {
+    fun getAccessToken(code: String): Result<AccessTokenResponseDto> {
         logger.info("[access token] code: $code")
         return runCatching {
             spotifyOAuthApi.getAccessToken(
                 auth = basicAuth(clientKey, secretKey),
                 code = code,
                 redirectUrl = redirectUrl
+            )
+        }
+    }
+
+    fun refresh(token: String): Result<TokenRefreshResponseDto> {
+        return runCatching {
+            spotifyOAuthApi.refresh(
+                auth = basicAuth(clientKey, secretKey),
+                refreshToken = token
             )
         }
     }
