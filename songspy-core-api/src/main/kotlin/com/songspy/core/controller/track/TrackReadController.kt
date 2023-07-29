@@ -1,6 +1,7 @@
 package com.songspy.core.controller.track
 
 import com.songspy.commons.api.response.CommonApiResponse
+import com.songspy.core.controller.track.response.CurrentPlayingTrackResponseDto
 import com.songspy.core.domains.track.TrackReadService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

@@ -1,4 +1,4 @@
-package com.songspy.core.controller.track
+package com.songspy.core.controller.track.response
 
 import com.songspy.core.domains.track.TrackDetail
 
