@@ -1,4 +1,4 @@
-package com.songspy.core.domains.google
+package com.songspy.core.domains.auth.google
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 

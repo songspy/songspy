@@ -1,6 +1,7 @@
-package com.songspy.core.domains.google
+package com.songspy.core.domains.auth
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.songspy.core.domains.auth.google.GoogleTokenPayload
 import java.util.*
 
 data class UserAuth(
