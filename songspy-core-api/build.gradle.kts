@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 val mockkVersion: String by project
 val kotestVersion: String by project
 val jwtVersion: String by project
@@ -24,4 +26,8 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
     testImplementation("io.kotest:kotest-property:$kotestVersion")
+}
+
+tasks.getByName<BootJar>("bootJar") {
+    enabled = true
 }

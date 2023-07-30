@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("org.jlleitschuh.gradle.ktlint")
@@ -20,6 +21,10 @@ allprojects {
         mavenCentral()
         maven("https://plugins.gradle.org/m2/")
     }
+}
+
+tasks.getByName<BootJar>("bootJar") {
+    enabled = false
 }
 
 dependencyManagement {
@@ -55,5 +60,13 @@ subprojects {
 
     tasks.withType<Test> {
         useJUnitPlatform()
+    }
+
+    tasks.getByName<BootJar>("bootJar") {
+        enabled = false
+    }
+
+    tasks.getByName<Jar>("jar") {
+        enabled = true
     }
 }
