@@ -9,10 +9,25 @@ spring:
     username: sa
     password:
   jpa:
-    show_sql: true
-    generate-ddl: true
+    show_sql: false
+    generate-ddl: false
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
         format_sql: true
+    database: mysql
+    open-in-view: false
+
+---
+spring.profiles.active:
+  - dev
+
+spring:
+  datasource:
+    main:
+      poolName: MainPool
+      jdbc-url: jdbc:mysql://localhost:3306/songspy
+      username: root
+      password:
+      driver-class-name: com.mysql.cj.jdbc.Driver
