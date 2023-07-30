@@ -5,6 +5,7 @@ import com.songspy.core.domains.auth.JwtTokenHandler
 import com.songspy.core.domains.auth.UserAuth
 import com.songspy.core.domains.user.UserCreator
 import com.songspy.core.domains.user.UserReader
+import com.songspy.core.domains.user.UserWithToken
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
@@ -17,7 +18,7 @@ class GoogleAuthService(
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    fun auth(accessToken: String): String {
+    fun auth(accessToken: String): UserWithToken {
         val googleUser = googleClient.getUser(accessToken)
             .onFailure { println(it) }
             .getOrThrow()
@@ -27,8 +28,8 @@ class GoogleAuthService(
         if (user == null) {
             val newUser = userCreator.create(userAuth)
             logger.info("[user created] user: $newUser")
-            return jwtTokenHandler.issue(newUser.id).accessToken
+            return newUser.withToken(jwtTokenHandler.issue(newUser.id).accessToken)
         }
-        return jwtTokenHandler.issue(user.id).accessToken
+        return user.withToken(jwtTokenHandler.issue(user.id).accessToken)
     }
 }

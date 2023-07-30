@@ -13,4 +13,14 @@ data class User(
             profileImageUrl = profileImageUrl
         )
     }
+
+    fun withToken(token: String): UserWithToken {
+        return UserWithToken(
+            id = id,
+            nickName = nickName,
+            hasSpotify = hasSpotify,
+            profileImageUrl = profileImageUrl,
+            token = token
+        )
+    }
 }
