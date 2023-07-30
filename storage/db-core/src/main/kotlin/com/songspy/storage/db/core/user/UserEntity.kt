@@ -12,7 +12,7 @@ class UserEntity(
     val email: String,
 
     @Column(name = "nick_name")
-    val nickName: String? = null,
+    var nickName: String? = null,
 
     @Column(name = "has_spotify")
     var hasSpotify: Boolean = false,
@@ -25,5 +25,9 @@ class UserEntity(
 ) : BaseEntity() {
     fun authenticateSpotify() {
         this.hasSpotify = true
+    }
+
+    fun edit(nickName: String) {
+        this.nickName = nickName
     }
 }
