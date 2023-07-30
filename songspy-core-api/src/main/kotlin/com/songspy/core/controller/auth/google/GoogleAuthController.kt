@@ -18,7 +18,7 @@ class GoogleAuthController(
     fun auth(
         @RequestBody body: GoogleAuthRequestDto
     ): CommonApiResponse<GoogleAuthResponseDto> {
-        val token = googleAuthService.auth(body.accessToken)
-        return CommonApiResponse.success(GoogleAuthResponseDto(token))
+        val userWithToken = googleAuthService.auth(body.accessToken)
+        return CommonApiResponse.success(GoogleAuthResponseDto(userWithToken))
     }
 }
