@@ -13,7 +13,8 @@ class CurrentPlayingTrackScheduler(
     private val spotifyClient: SpotifyClient,
     private val spotifyTokenReader: SpotifyTokenReader,
     private val spotifyCurrentPlayingTrackMapper: SpotifyCurrentPlayingTrackMapper,
-    private val spotifyCurrentPlayingTrackAppender: SpotifyCurrentPlayingTrackAppender
+    private val spotifyCurrentPlayingTrackAppender: SpotifyCurrentPlayingTrackAppender,
+    private val spotifyCurrentPlayingTrackReader: SpotifyCurrentPlayingTrackReader
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
@@ -33,9 +34,15 @@ class CurrentPlayingTrackScheduler(
             .getOrNull()
         if (trackDto != null) {
             val currentPlayingTrack = spotifyCurrentPlayingTrackMapper.map(trackDto.item)
-            spotifyCurrentPlayingTrackAppender.append(tokenBucket.userId, currentPlayingTrack)
-            logger.info("[current track append success] user: ${tokenBucket.userId} | track: $currentPlayingTrack")
+            if (canAppend(tokenBucket.userId, currentPlayingTrack.id)) {
+                spotifyCurrentPlayingTrackAppender.append(tokenBucket.userId, currentPlayingTrack)
+                logger.info("[current track append success] user: ${tokenBucket.userId} | track: $currentPlayingTrack")
+            }
         }
+    }
+
+    private fun canAppend(userId: Long, trackId: String): Boolean {
+        return spotifyCurrentPlayingTrackReader.readByUserIdAndTrackId(userId, trackId) == null
     }
 
     companion object {
