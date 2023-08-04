@@ -5,5 +5,6 @@ data class SpotifyCurrentPlayingTrack(
     val artistName: String,
     val originalUrl: String,
     val previewUrl: String,
-    val albumImageUrl: String
+    val albumImageUrl: String,
+    val id: String
 )
