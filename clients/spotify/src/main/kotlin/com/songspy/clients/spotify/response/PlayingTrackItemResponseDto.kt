@@ -10,5 +10,6 @@ data class PlayingTrackItemResponseDto(
     @JsonProperty("name")
     val title: String,
     @JsonProperty("preview_url")
-    val previewUrl: String
+    val previewUrl: String,
+    val id: String
 )

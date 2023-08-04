@@ -12,7 +12,8 @@ class SpotifyCurrentPlayingTrackMapper {
             artistName = dto.artists.getOrNull(0)?.name ?: "",
             originalUrl = dto.externalUrls.spotify,
             previewUrl = dto.previewUrl,
-            albumImageUrl = dto.album.images.getOrNull(0)?.url ?: ""
+            albumImageUrl = dto.album.images.getOrNull(0)?.url ?: "",
+            id = dto.id
         )
     }
 
@@ -23,7 +24,19 @@ class SpotifyCurrentPlayingTrackMapper {
             artistName = track.artistName,
             originalUrl = track.originalUrl,
             previewUrl = track.previewUrl,
-            albumImageUrl = track.albumImageUrl
+            albumImageUrl = track.albumImageUrl,
+            trackId = track.id
+        )
+    }
+
+    fun map(entity: CurrentTrackEntity): SpotifyCurrentPlayingTrack {
+        return SpotifyCurrentPlayingTrack(
+            title = entity.title,
+            artistName = entity.artistName,
+            originalUrl = entity.originalUrl,
+            previewUrl = entity.previewUrl,
+            albumImageUrl = entity.albumImageUrl,
+            id = entity.trackId
         )
     }
 }

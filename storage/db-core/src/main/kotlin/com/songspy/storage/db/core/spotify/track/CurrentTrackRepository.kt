@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface CurrentTrackRepository : JpaRepository<CurrentTrackEntity, Long> {
     fun findAllByOrderByCreatedAtDesc(): List<CurrentTrackEntity>
+
+    fun findOneByUserIdAndTrackId(userId: Long, trackId: String): CurrentTrackEntity?
 }
