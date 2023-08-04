@@ -10,8 +10,7 @@ class TrackReadService(
     private val trackDetailAggregator: TrackDetailAggregator
 ) {
     fun readCurrentPlaying(): List<TrackDetail> {
-//        val tracks = getUniqueByUserId(trackReader.readAll())
-        val tracks = trackReader.readAll()
+        val tracks = getUniqueByUserId(trackReader.readAll())
         val userProfiles = userReader.readAllByUserIdIn(tracks.map { it.userId })
             .map { it.profile() }
         return trackDetailAggregator.aggregate(tracks, userProfiles)
