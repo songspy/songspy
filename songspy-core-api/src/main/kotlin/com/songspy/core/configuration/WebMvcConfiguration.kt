@@ -12,5 +12,6 @@ class WebMvcConfiguration(
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.addInterceptor(bearerAuthorizationInterceptor)
             .excludePathPatterns("/v1/songspy/google-auth")
+            .excludePathPatterns("/v1/songspy/tracks/**")
     }
 }
