@@ -16,6 +16,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     implementation("io.jsonwebtoken:jjwt-api:$jwtVersion")
     implementation("io.jsonwebtoken:jjwt-impl:$jwtVersion")

@@ -7,3 +7,4 @@ spring:
       - db.yml
       - google.yml
       - jwt.yml
+      - actuator.yml
