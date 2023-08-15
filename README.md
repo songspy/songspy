@@ -21,10 +21,12 @@ sequenceDiagram
   participant batch
   participant spotify
 
-	batch ->> batch: get expired access-token
-	batch -->> spotify: refresh access-token (/api/token)
-	spotify -->> batch: refresh response
-    batch ->> batch: update token
+  autonumber
+
+  batch ->> batch: get expired access-token
+  batch -->> spotify: refresh access-token (/api/token)
+  spotify -->> batch: refresh response
+  batch ->> batch: update token
 ```
 
 ### CurrentPlayingTrackScheduler
@@ -40,8 +42,61 @@ sequenceDiagram
   participant batch
   participant spotify
 
+  autonumber
+  
   batch ->> batch: get existed access-token
   batch -->> spotify: get current-playing-track (/v1/me/player/currently-playing)
-	spotify -->> batch: track response
+  spotify -->> batch: track response
   batch ->> batch: track update not exist in user tracks
+```
+
+## 회원가입 및 스포티파이 연동
+회원가입은 google oauth를 이용합니다.
+
+```mermaid
+sequenceDiagram
+  participant songspy-fe
+  participant songspy-be
+  participant google
+  participant spoitfy
+	
+  autonumber
+
+  alt google-oauth 이용한 회원가입
+  
+  songspy-fe ->> google: auth code 발급 요청
+  activate google
+  google ->> songspy-fe: auth code 응답 및 리다이렉트
+  deactivate google
+  songspy-fe ->> google: access-token 발급 요청
+  activate google
+  google ->> songspy-fe: access-token 응답
+  deactivate google
+  
+  songspy-fe ->> songspy-be: google 회원가입 (/v1/songspy/google-auth)
+  songspy-be ->> google: 발급 받은 access-token을 통해 유저 정보 조회 (/oauth2/v1/userinfo)
+  activate google  
+  google ->> songspy-be: 유저 정보 응답
+  deactivate google
+  songspy-be ->> songspy-be: 유저 정보를 통해 회원가입
+  songspy-be ->> songspy-fe: jwt 토큰 발급
+  
+  end
+
+  alt spotify-oauth를 이용한 연동
+  
+  songspy-fe ->> spotify: auth code 발급 요청
+  activate spotify
+  spotify ->> songspy-fe: auth code 응답 및 리다이렉트
+  deactivate spotify
+
+  songspy-fe ->> songspy-be: spotify access-token 발급 요청
+  songspy-be ->> spotify: access-token 발급 요청
+  activate spotify
+  spotify ->> songspy-be: access-token 응답
+  deactivate spotify
+  songspy-be ->> songspy-be: access-token 유저 정보와 함께 저장
+  songspy-be ->> songspy-fe: 200 Success
+  
+  end
 ```
