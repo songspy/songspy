@@ -25,7 +25,9 @@ sequenceDiagram
 
   batch ->> batch: get expired access-token
   batch -->> spotify: refresh access-token (/api/token)
+  activate spotify
   spotify -->> batch: refresh response
+  deactivate spotify
   batch ->> batch: update token
 ```
 
@@ -43,10 +45,12 @@ sequenceDiagram
   participant spotify
 
   autonumber
-  
+
   batch ->> batch: get existed access-token
   batch -->> spotify: get current-playing-track (/v1/me/player/currently-playing)
+  activate spotify
   spotify -->> batch: track response
+  deactivate spotify
   batch ->> batch: track update not exist in user tracks
 ```
 
