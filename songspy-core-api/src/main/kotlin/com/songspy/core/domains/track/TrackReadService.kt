@@ -15,6 +15,7 @@ class TrackReadService(
         val userProfiles = userReader.readAllByUserIdIn(tracks.map { it.userId })
             .map { it.profile() }
         return trackDetailAggregator.aggregate(tracks, userProfiles)
+            .take(40)
     }
 
     private fun getUniqueByUserId(tracks: List<Track>): List<Track> {
