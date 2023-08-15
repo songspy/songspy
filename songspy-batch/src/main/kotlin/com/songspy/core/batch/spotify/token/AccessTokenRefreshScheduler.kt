@@ -33,6 +33,6 @@ class AccessTokenRefreshScheduler(
         spotifyTokenReNewer.renew(tokenBucket.id, newAccessToken)
     }
     companion object {
-        private const val ACCESS_TOKEN_REFRESH_SCHEDULE_TIME = 1_000L * 60 * 30 // 30분
+        private const val ACCESS_TOKEN_REFRESH_SCHEDULE_TIME = 1_000L * 60 * 10 // 10분
     }
 }
