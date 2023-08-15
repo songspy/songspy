@@ -46,6 +46,6 @@ class CurrentPlayingTrackScheduler(
     }
 
     companion object {
-        private const val CURRENTLY_PLAYING_TRACK__SCHEDULE_TIME = 1_000L * 60 * 3 // 3분
+        private const val CURRENTLY_PLAYING_TRACK__SCHEDULE_TIME = 1_000L * 30  // 30초
     }
 }
