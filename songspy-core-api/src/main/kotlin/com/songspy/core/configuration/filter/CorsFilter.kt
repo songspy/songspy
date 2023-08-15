@@ -6,6 +6,7 @@ import jakarta.servlet.ServletRequest
 import jakarta.servlet.ServletResponse
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.slf4j.LoggerFactory
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
 import org.springframework.http.HttpHeaders
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Component
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 class CorsFilter : Filter {
+    private val logger = LoggerFactory.getLogger(javaClass)
+
     private val allowedHosts = listOf(
         "songsspy",
         "localhost"
@@ -38,6 +41,7 @@ class CorsFilter : Filter {
                 chain.doFilter(request, response)
             }
         } else {
+            logger.info("now allowed request. host: ${req.getHeader(HttpHeaders.HOST)} | origin: ${req.getHeader(HttpHeaders.ORIGIN)}")
             response.status = HttpServletResponse.SC_FORBIDDEN
         }
     }
