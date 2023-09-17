@@ -4,6 +4,8 @@ include(
     "clients:google",
     "clients:spotify",
     "commons:api",
+    "commons:enums",
+    "commons:exceptions",
     "commons:extension",
     "songspy-batch",
     "songspy-core-api",

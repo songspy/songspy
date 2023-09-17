@@ -5,9 +5,13 @@ val kotestVersion: String by project
 
 dependencies {
     implementation(project(":commons:api"))
+    implementation(project(":commons:enums"))
+    implementation(project(":commons:exceptions"))
     implementation(project(":clients:spotify"))
+    implementation(project(":storage:db-core"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
