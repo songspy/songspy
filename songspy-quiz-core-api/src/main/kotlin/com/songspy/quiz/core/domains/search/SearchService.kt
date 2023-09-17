@@ -12,7 +12,7 @@ class SearchService(
         // TODO token change (일단 mocking)
         val spotifyToken = "token"
         val searchResponse = spotifyClient.search(token = spotifyToken, keyword = keyword, offset = offset)
-            .onFailure {  }
+            .onFailure { }
             .getOrThrow()
         return searchResultMapper.map(searchResponse)
     }
