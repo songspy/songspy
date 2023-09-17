@@ -3,7 +3,7 @@ package com.songspy.quiz.core.domains.search
 import java.net.URL
 import java.util.Base64
 
-data class SpotifySearchCursor(
+data class SpotifyCursor(
     val cursor: String?
 ) {
 
