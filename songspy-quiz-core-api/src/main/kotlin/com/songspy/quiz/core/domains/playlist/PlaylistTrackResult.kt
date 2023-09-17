@@ -14,5 +14,9 @@ data class PlaylistTrackResult(
         val image: String,
         val explicit: Boolean,
         val previewUrl: String?
-    )
+    ) {
+        fun canPlay(): Boolean {
+            return previewUrl != null
+        }
+    }
 }
