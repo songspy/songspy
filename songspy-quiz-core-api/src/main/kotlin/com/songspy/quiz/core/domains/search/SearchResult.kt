@@ -1,7 +1,7 @@
 package com.songspy.quiz.core.domains.search
 
 data class SearchResult(
-    val cursor: String?,
+    val cursor: SpotifySearchCursor?,
     val playlists: List<PlaylistSearchResult>
 ) {
     data class PlaylistSearchResult(
