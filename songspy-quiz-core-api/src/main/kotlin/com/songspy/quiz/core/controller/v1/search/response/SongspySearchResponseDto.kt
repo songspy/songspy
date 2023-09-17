@@ -10,7 +10,7 @@ data class SongspySearchResponseDto(
     companion object {
         fun from(result: SearchResult): SongspySearchResponseDto {
             return SongspySearchResponseDto(
-                cursor = result.cursor,
+                cursor = result.cursor?.encode(),
                 playlists = result.playlists.map {
                     PlaylistSearchResponseDto(
                         id = it.id,
