@@ -1,5 +1,6 @@
 package com.songspy.commons.exceptions
 
 class CoreApiException(
-    errorType: ErrorType,
-) : RuntimeException(errorType.message)
+    val errorType: ErrorType,
+    message: String = errorType.message
+) : RuntimeException(message)
