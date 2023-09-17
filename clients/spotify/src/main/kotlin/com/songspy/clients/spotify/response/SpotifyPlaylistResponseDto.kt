@@ -2,7 +2,7 @@ package com.songspy.clients.spotify.response
 
 data class SpotifyPlaylistResponseDto(
     val next: String,
-    val items: PlaylistDetailResponseDto
+    val items: List<PlaylistDetailResponseDto>
 ) {
     data class PlaylistDetailResponseDto(
         val id: String,
