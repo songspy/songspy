@@ -6,7 +6,6 @@ data class SearchResult(
 ) {
     data class PlaylistSearchResult(
         val id: String,
-        val trackId: String,
         val title: String,
         val image: String
     )

@@ -1,7 +1,7 @@
 package com.songspy.quiz.core.domains.search
 
-import com.songspy.clients.spotify.response.ImageResponseDto
 import com.songspy.clients.spotify.response.SpotifySearchResponseDto
+import com.songspy.quiz.core.support.spotify.SpotifySearchUtils
 import org.springframework.stereotype.Component
 
 @Component
@@ -12,19 +12,10 @@ class SearchResultMapper {
             playlists = response.playlists.items.map {
                 SearchResult.PlaylistSearchResult(
                     id = it.id,
-                    trackId = it.tracks.href, // TODO resolve
                     title = it.name,
-                    image = getImage(it.tracks.images)
+                    image = SpotifySearchUtils.getImage(it.tracks.images)
                 )
             }
         )
-    }
-
-    private fun getImage(images: List<ImageResponseDto>): String {
-        return if (images.isNotEmpty()) {
-            images[0].url
-        } else {
-            "default image"
-        }
     }
 }

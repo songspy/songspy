@@ -14,7 +14,6 @@ data class SongspySearchResponseDto(
                 playlists = result.playlists.map {
                     PlaylistSearchResponseDto(
                         id = it.id,
-                        trackId = it.trackId,
                         title = it.title,
                         imageUrl = it.image
                     )
@@ -25,7 +24,6 @@ data class SongspySearchResponseDto(
 
     data class PlaylistSearchResponseDto(
         val id: String,
-        val trackId: String,
         val title: String,
         val imageUrl: String
     )
