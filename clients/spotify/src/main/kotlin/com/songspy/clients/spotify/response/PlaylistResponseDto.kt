@@ -10,7 +10,8 @@ data class PlaylistResponseDto(
         val tracks: TrackResponseDto
     ) {
         data class TrackResponseDto(
-            val href: String
+            val href: String,
+            val images: List<ImageResponseDto>
         )
     }
 }
