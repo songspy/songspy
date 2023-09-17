@@ -3,7 +3,7 @@ package com.songspy.clients.spotify.response
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class SpotifyPlaylistTrackResponseDto(
-    val next: String,
+    val next: String?,
     val total: Int,
     val items: List<SpotifyTrackResponseDto>
 ) {
