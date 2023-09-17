@@ -28,4 +28,4 @@ class QuizTrackEntity(
 
     @Column(name = "preview_url")
     val previewUrl: String
-): BaseEntity()
+) : BaseEntity()

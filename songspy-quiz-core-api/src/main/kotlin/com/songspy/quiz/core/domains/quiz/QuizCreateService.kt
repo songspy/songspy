@@ -19,13 +19,15 @@ class QuizCreateService(
                     .filter { it.canPlay() }
                     .shuffled()
                     .take(randomQuizTrackSize)
-                    .map { QuizTrackCreation(
-                        id = it.id,
-                        title = it.title,
-                        artistName = it.artistName,
-                        image = it.image,
-                        previewUrl = it.previewUrl!!,
-                    ) }
+                    .map {
+                        QuizTrackCreation(
+                            id = it.id,
+                            title = it.title,
+                            artistName = it.artistName,
+                            image = it.image,
+                            previewUrl = it.previewUrl!!
+                        )
+                    }
                 quizTrackCreator.createAll(quizId, creation.playlistId, trackCreations)
             }
         }

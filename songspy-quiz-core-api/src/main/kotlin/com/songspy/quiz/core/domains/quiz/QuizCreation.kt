@@ -6,5 +6,4 @@ data class QuizCreation(
     val type: QuizCreateType,
     val playlistId: String,
     val tracks: List<QuizTrackCreation>?
-) {
-}
+)

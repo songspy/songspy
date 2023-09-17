@@ -10,4 +10,4 @@ import jakarta.persistence.Table
 class QuizEntity(
     @Column(name = "playlist_id")
     val playlistId: String
-): BaseEntity()
+) : BaseEntity()
