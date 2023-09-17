@@ -1,0 +1,6 @@
+spring.application.name: songspy-quiz-core-api
+
+spring:
+  config:
+    import:
+      - spotify.yml
