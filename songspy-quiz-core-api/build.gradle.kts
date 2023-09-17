@@ -6,6 +6,7 @@ val kotestVersion: String by project
 dependencies {
     implementation(project(":commons:api"))
     implementation(project(":commons:enums"))
+    implementation(project(":commons:exceptions"))
     implementation(project(":clients:spotify"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
