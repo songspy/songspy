@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 class SearchResultMapper {
     fun map(response: SpotifySearchResponseDto): SearchResult {
         return SearchResult(
-            cursor = SpotifySearchCursor(response.playlists.next),
+            cursor = SpotifyCursor(response.playlists.next),
             playlists = response.playlists.items.map {
                 SearchResult.PlaylistSearchResult(
                     id = it.id,

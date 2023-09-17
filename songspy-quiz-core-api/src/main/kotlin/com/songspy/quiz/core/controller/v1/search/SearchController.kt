@@ -3,7 +3,7 @@ package com.songspy.quiz.core.controller.v1.search
 import com.songspy.commons.api.response.CommonApiResponse
 import com.songspy.quiz.core.controller.v1.search.response.SongspySearchResponseDto
 import com.songspy.quiz.core.domains.search.SearchService
-import com.songspy.quiz.core.domains.search.SpotifySearchCursor
+import com.songspy.quiz.core.domains.search.SpotifyCursor
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -19,7 +19,7 @@ class SearchController(
         @RequestParam keyword: String,
         @RequestParam cursor: String?
     ): CommonApiResponse<SongspySearchResponseDto> {
-        val searchResult = searchService.search(keyword = keyword, offset = SpotifySearchCursor(cursor).offset())
+        val searchResult = searchService.search(keyword = keyword, offset = SpotifyCursor(cursor).offset())
         return CommonApiResponse.success(
             SongspySearchResponseDto.from(searchResult)
         )
