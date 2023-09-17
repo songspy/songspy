@@ -1,7 +1,7 @@
 package com.songspy.clients.spotify
 
 import com.songspy.clients.spotify.response.PlayingTrackResponseDto
-import com.songspy.clients.spotify.response.SearchResponseDto
+import com.songspy.clients.spotify.response.SpotifySearchResponseDto
 import com.songspy.commons.extension.BearerAuth
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,5 +21,5 @@ interface SpotifyApi {
         @RequestParam market: String = "KR",
         @RequestParam limit: Int = 20,
         @RequestParam offset: Int
-    ): SearchResponseDto
+    ): SpotifySearchResponseDto
 }

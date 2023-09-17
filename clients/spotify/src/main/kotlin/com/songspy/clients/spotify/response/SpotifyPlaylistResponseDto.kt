@@ -1,6 +1,6 @@
 package com.songspy.clients.spotify.response
 
-data class PlaylistResponseDto(
+data class SpotifyPlaylistResponseDto(
     val next: String,
     val items: PlaylistDetailResponseDto
 ) {
