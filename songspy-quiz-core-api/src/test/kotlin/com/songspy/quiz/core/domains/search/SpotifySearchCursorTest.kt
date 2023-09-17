@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 
 internal class SpotifySearchCursorTest {
     private val offset = 30
+
     @Test
     fun `cursor encode`() {
         val cursor = SpotifySearchCursor("https://api.spotify.com/v1/search?query=%ED%9E%99%ED%95%A9&type=playlist&market=KR&locale=ko-KR%2Cko%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7&offset=$offset&limit=20")
