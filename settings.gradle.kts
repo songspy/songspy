@@ -7,6 +7,7 @@ include(
     "commons:extension",
     "songspy-batch",
     "songspy-core-api",
+    "songspy-quiz-core-api",
     "storage:db-core"
 )
 
