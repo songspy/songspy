@@ -1,6 +1,7 @@
 package com.songspy.clients.spotify
 
 import com.songspy.clients.spotify.response.PlayingTrackResponseDto
+import com.songspy.clients.spotify.response.SearchResponseDto
 import com.songspy.commons.extension.bearerAuth
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
@@ -16,6 +17,16 @@ class SpotifyClient(
         return runCatching {
             spotifyApi.getCurrentlyPlayingTrack(
                 auth = bearerAuth(token)
+            )
+        }
+    }
+
+    fun search(token: String, keyword: String, offset: Int): Result<SearchResponseDto> {
+        return runCatching {
+            spotifyApi.search(
+                auth = bearerAuth(token),
+                keyword = keyword,
+                offset = offset
             )
         }
     }
